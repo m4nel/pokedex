@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { HomeComponent } from './home/home.component';
+import { PokedexComponent } from './pokedex/pokedex.component';
+
+
+const routes: Routes = [
+  {path: '' , pathMatch: 'full', redirectTo: 'home' },
+  {path: 'home',component: HomeComponent },
+  {path: 'pokedex', component: PokedexComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

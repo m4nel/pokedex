@@ -1,0 +1,46 @@
+<!-- <body>
+  <div class="card">
+
+    <div class="wrapper">
+
+      <img src="/assets/PikachuCard.png" class="cover-image" />
+    </div>
+
+    <img src="/assets/BannerPokebollCERTO.png" class="logo" />
+
+    <img src="/assets/RAICHUCERTO.png" class="character" />
+  </div>
+</body> -->
+<div class="inputSearch">
+  <input [(ngModel)]="inputSearch" type="text" (ngModelChange)="TemPokemon()">
+</div>
+
+<div class="divPai">
+  <mat-paginator
+    [length]="pokemons.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = $event"
+    aria-label="Select page"
+    *ngIf="paginar">
+  </mat-paginator>
+
+  <div class="box" *ngIf="temPokemon ; else notFound">
+    <div *ngFor="let pokemon of pokemons | searchPipe: inputSearch" class="listPokemon">
+      <app-pokemon [pokemon]="pokemon"></app-pokemon>
+    </div>
+  </div>
+
+  <mat-paginator
+    [length]="pokemons.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = $event"
+    aria-label="Select page"
+    *ngIf="paginar">
+  </mat-paginator>
+</div>
+
+<ng-template #notFound>
+  <h2 style="color: red;">Nenhum pokemon encontrado</h2>
+</ng-template>
