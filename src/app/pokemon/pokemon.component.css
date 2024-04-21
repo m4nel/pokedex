@@ -1,4 +1,7 @@
-/* .example-card {
-  max-width: 400px;
-  margin-bottom: 8px;
-} */
+.contentCard {
+display: flex;
+margin: 0px;
+}
+mat-card-content{
+  margin-bottom: 0px;
+}

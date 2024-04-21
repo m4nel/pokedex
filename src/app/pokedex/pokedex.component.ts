@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 
 import { Pokemon } from '../models/Pokemon';
 import { PokemonService } from './../service/pokemon.service';
@@ -11,39 +11,48 @@ import { PokemonService } from './../service/pokemon.service';
 })
 export class PokedexComponent implements OnInit {
 
-  pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
-  pokemons : Pokemon[] = [];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  pageSize = 9;
+  paginar : boolean = true;
+  currentPage: number = 1;
   inputSearch : string = '';
+  pokemons : Pokemon[] = [];
   pokemonsFiltrados : Pokemon[] = [];
   temPokemon : boolean = true;
-  paginar : boolean = true;
-  pageEvent: PageEvent;
 
   constructor(public pokemonService : PokemonService) {
     this.pokemons = pokemonService.pokemons;
+    this.pokemonsFiltrados = this.pokemons;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
 
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
   }
+
+  onPageChange(event: any) {
+    this.currentPage = event.pageIndex + 1;
+  }
+
 
   TemPokemon() {
+    this.temPokemon = this.pokemons.some( p => p.name.includes(this.inputSearch) || p.id.toString().includes(this.inputSearch));
     this.ehPraPaginar();
-    return this.temPokemon = this.pokemons.some( p => p.name.includes(this.inputSearch) || p.id.toString().includes(this.inputSearch));
+
+    if(this.ehPraPaginar() && this.paginator != undefined) {
+      this.currentPage = 1;
+      this.paginator.pageIndex = 0;
+    }
+
+    return this.temPokemon;
   }
 
   ehPraPaginar() {
     this.pokemonsFiltrados = this.pokemons.filter(p => p.name.includes(this.inputSearch) || p.id.toString().includes(this.inputSearch));
-    if(this.pokemonsFiltrados.length < 15) {
-      this.paginar = false;
+    if(this.pokemonsFiltrados.length <= 9) {
+      return this.paginar = false;
     }else {
-      this.paginar = true;
+      return this.paginar = true;
     }
   }
 }

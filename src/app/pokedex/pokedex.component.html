@@ -16,26 +16,17 @@
 </div>
 
 <div class="divPai">
-  <mat-paginator
-    [length]="pokemons.length"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="pageSizeOptions"
-    (page)="pageEvent = $event"
-    aria-label="Select page"
-    *ngIf="paginar">
-  </mat-paginator>
 
   <div class="box" *ngIf="temPokemon ; else notFound">
-    <div *ngFor="let pokemon of pokemons | searchPipe: inputSearch" class="listPokemon">
+    <div *ngFor="let pokemon of pokemons | searchPipe: inputSearch | slice: (currentPage - 1) * pageSize : currentPage * pageSize" class="listPokemon">
       <app-pokemon [pokemon]="pokemon"></app-pokemon>
     </div>
   </div>
 
   <mat-paginator
-    [length]="pokemons.length"
+    [length]="pokemonsFiltrados.length"
     [pageSize]="pageSize"
-    [pageSizeOptions]="pageSizeOptions"
-    (page)="pageEvent = $event"
+    (page)="onPageChange($event)"
     aria-label="Select page"
     *ngIf="paginar">
   </mat-paginator>

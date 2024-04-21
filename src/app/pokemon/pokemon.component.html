@@ -6,8 +6,11 @@
     <mat-card-subtitle>{{pokemon.id}}</mat-card-subtitle>
     <img mat-card-md-image [src]="pokemon.sprites.other.dream_world.front_default" >
   </mat-card-title-group>
-  <mat-card-content>
 
-  </mat-card-content>
+  <div class="contentCard">
+    <mat-card-content  *ngFor="let tipo of pokemon.types">
+      {{tipo.type.name}}
+    </mat-card-content>
+  </div>
 
 </mat-card>
