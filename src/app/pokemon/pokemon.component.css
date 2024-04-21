@@ -1,7 +1,21 @@
+
 .contentCard {
 display: flex;
 margin: 0px;
 }
+
 mat-card-content{
   margin-bottom: 0px;
+}
+
+.example-card{
+  cursor: pointer;
+
+}
+
+.example-card:hover{
+  transform: scale(1.1, 1.1);
+  box-shadow: 2px 2px 20px rgba(0,0,0,.5);
+  background-color: red;
+  transition: all 1s;
 }

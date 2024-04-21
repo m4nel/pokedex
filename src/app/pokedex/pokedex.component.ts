@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 
 import { Pokemon } from '../models/Pokemon';
 import { PokemonService } from './../service/pokemon.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-pokedex',
@@ -16,18 +18,28 @@ export class PokedexComponent implements OnInit {
   pageSize = 9;
   paginar : boolean = true;
   currentPage: number = 1;
+
   inputSearch : string = '';
   pokemons : Pokemon[] = [];
   pokemonsFiltrados : Pokemon[] = [];
   temPokemon : boolean = true;
 
-  constructor(public pokemonService : PokemonService) {
+  showDetail : boolean = false;
+
+  constructor(public pokemonService : PokemonService, public dialog: MatDialog) {
     this.pokemons = pokemonService.pokemons;
     this.pokemonsFiltrados = this.pokemons;
   }
 
   ngOnInit(): void {
 
+  }
+
+  selecionaPokemon(pokemon: Pokemon ) {
+
+    this.dialog.open(ModalComponent, {
+      data: pokemon
+    });
   }
 
   onPageChange(event: any) {

@@ -1,37 +1,36 @@
-<!-- <body>
-  <div class="card">
 
-    <div class="wrapper">
-
-      <img src="/assets/PikachuCard.png" class="cover-image" />
-    </div>
-
-    <img src="/assets/BannerPokebollCERTO.png" class="logo" />
-
-    <img src="/assets/RAICHUCERTO.png" class="character" />
-  </div>
-</body> -->
 <div class="inputSearch">
-  <input [(ngModel)]="inputSearch" type="text" (ngModelChange)="TemPokemon()">
+  <input [(ngModel)]="inputSearch" type="text" (ngModelChange)="TemPokemon()" />
 </div>
 
 <div class="divPai">
+  <div class="box" *ngIf="temPokemon; else notFound">
+    <div
+      *ngFor="
+        let pokemon of pokemons
+          | searchPipe : inputSearch
+          | slice : (currentPage - 1) * pageSize : currentPage * pageSize
+      "
+      class="listPokemon"
+      (click)="selecionaPokemon(pokemon)"
+      >
 
-  <div class="box" *ngIf="temPokemon ; else notFound">
-    <div *ngFor="let pokemon of pokemons | searchPipe: inputSearch | slice: (currentPage - 1) * pageSize : currentPage * pageSize" class="listPokemon">
-      <app-pokemon [pokemon]="pokemon"></app-pokemon>
+      <app-pokemon class="appPokemon" [pokemon]="pokemon" ></app-pokemon>
+
     </div>
   </div>
 
-  <mat-paginator
-    [length]="pokemonsFiltrados.length"
-    [pageSize]="pageSize"
-    (page)="onPageChange($event)"
-    aria-label="Select page"
-    *ngIf="paginar">
-  </mat-paginator>
 </div>
 
+<mat-paginator
+  [length]="pokemonsFiltrados.length"
+  [pageSize]="pageSize"
+  (page)="onPageChange($event)"
+  aria-label="Select page"
+  *ngIf="paginar"
+>
+</mat-paginator>
+
 <ng-template #notFound>
-  <h2 style="color: red;">Nenhum pokemon encontrado</h2>
+  <h2 style="color: red">Nenhum pokemon encontrado</h2>
 </ng-template>

@@ -9,7 +9,9 @@
 
   <div class="contentCard">
     <mat-card-content  *ngFor="let tipo of pokemon.types">
-      {{tipo.type.name}}
+      <span>
+        {{tipo.type.name}}
+      </span>
     </mat-card-content>
   </div>
 
