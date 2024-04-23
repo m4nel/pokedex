@@ -6,7 +6,8 @@ export interface Pokemon {
   weight: number,
   stats: Stats[],
   types: Types[],
-  sprites: Sprites
+  sprites: Sprites,
+  abilities: Abilities[]
 }
 
 interface Stats {
@@ -18,9 +19,15 @@ interface Types {
   type: {name : string}
 }
 interface Sprites {
+  front_default: string,
   other: Other
 }
 
 interface Other {
   dream_world: {front_default: string}
+  showdown: {front_default: string}
+}
+
+interface Abilities {
+  ability: {name: string}
 }

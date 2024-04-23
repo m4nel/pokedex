@@ -12,6 +12,7 @@ export class ModalComponent implements OnInit {
 
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: Pokemon) { }
 
+
   ngOnInit(): void {
   }
 
