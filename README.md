@@ -1,27 +1,28 @@
-# Pokedex
+# Projeto Pokedex Angular 14
+BEM VINDO
+![Alt Text](assets/SquartGIF.gif)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
 
-## Development server
+## Descrição
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O projeto é uma aplicação web que permite aos usuários explorar e aprender sobre os diferentes tipos de Pokémon. Usamos o Angular 14 para criar uma interface interativa e envolvente que torna a experiência de descoberta dos Pokémon ainda mais emocionante.
 
-## Code scaffolding
+## Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Visualize uma lista de Pokémons onde eles estão disponibiliziados em lista mostrando na cor do seu card o seu tipo.
+- Pesquise Pokémon específicos por nome ou Id.
+- Veja informações detalhadas sobre cada Pokémon, incluindo habilidades, status, altura e peso.
+- Uma batalha entre pokemons para saber qual é o mais forte.
 
-## Build
+## Como Usar
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone o repositório: `git clone https://github.com/m4nel/pokedex`
+2. Instale as dependências: `npm install`
+3. Inicie o servidor de desenvolvimento: `ng serve`
+4. Abra o navegador e acesse `http://localhost:4200/`
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Divirta-se explorando o mundo dos Pokémon com o Projeto Pokedex, Pikachu, eu escolho você!
+[Alt Text](assets/pikachuFeliz.gif)
