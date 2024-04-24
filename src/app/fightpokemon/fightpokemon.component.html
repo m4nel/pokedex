@@ -2,7 +2,7 @@
   <div class="inputBatalha">
 
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Pokemon</mat-label>
+      <mat-label>Pokemon </mat-label>
       <input matInput
              aria-label="Pokemon"
              [matAutocomplete]="auto"
@@ -45,8 +45,9 @@
     [ngStyle]="background"
     >
         <mat-card-header>
-            <mat-card-title>{{pokemonInput1.name}}</mat-card-title>
+            <mat-card-title>{{pokemonInput1.name.toUpperCase()}} </mat-card-title>
         </mat-card-header>
+        <h2><strong>{{texto1}}</strong></h2>
         <img mat-card-xl-image [src]="pokemonInput1.sprites.front_default" alt="Photo of a pokemon">
         <mat-card-content>
           <div>
@@ -55,11 +56,14 @@
         </mat-card-content>
     </mat-card>
 
+    <button mat-button (click)="fight()">FIGHT</button>
+
     <mat-card class="cardInternoBatalha SEGUNDO" *ngIf="pokemonInput2"
     [ngStyle]="background2">
         <mat-card-header>
-            <mat-card-title>{{pokemonInput2.name}}</mat-card-title>
+            <mat-card-title>{{pokemonInput2.name.toUpperCase()}} </mat-card-title>
         </mat-card-header>
+        <h2><strong>{{texto2}}</strong></h2>
         <img mat-card-xl-image [src]="pokemonInput2.sprites.front_default" alt="Photo of a pokemon">
         <mat-card-content>
           <div>
@@ -68,8 +72,5 @@
         </mat-card-content>
     </mat-card>
 
-    <button (click)="fight()">
-      FIGHT
-    </button>
   </mat-card>
 </mat-card>

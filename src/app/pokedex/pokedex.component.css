@@ -1,4 +1,6 @@
-
+.pokedexTela{
+margin-top: 5%;
+}
 
 .box {
   display: flex;
@@ -11,9 +13,14 @@
   width: 25%;
   margin: 0.7%;
 }
+input {
+  width: 40%;
+  margin-left: 10px;
+}
 .inputSearch{
-  maw-width: 40px;
-  max-height: 20px;
+  margin-right: 10px;
+  maw-width: 50%;
+  max-height: 30px;
   display: flex;
   justify-content: center;
   padding: 10px;

@@ -1,12 +1,28 @@
 .cardMaiorBatalha{
   display: flex;
-  width: 90%;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
+  background-color: #ff0000;
+  background-image: linear-gradient(33deg, #ff0000 2%, #FFFFFF 15%, #ffffff 90%, #f90000 100%);
+  min-width: 80%;
+  min-height: 390px;
 }
 
 .cardBody {
 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 50%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow:
+    0px 0px 10px 0px rgba(0, 0, 0, 0.3),
+    0px 4px 15px -5px rgba(0, 0, 0, 0.5),
+    0px -4px 15px -5px rgba(0, 0, 0, 0.5);
 }
 input {
   margin-left: 20px;
@@ -22,7 +38,6 @@ input {
 
 .cardInternoBatalha{
   margin-left: 30px;
-  width: 30%;
 }
 
 .example-form {
@@ -32,9 +47,9 @@ input {
 }
 
 .example-full-width {
-width:100%;
-display: flex;
-justify-content: center;
+  min-width: 270px;
+  display: flex;
+  justify-content: center;
 }
 
 .example-option-img {
@@ -44,7 +59,19 @@ justify-content: center;
   height: 45%;
 }
 
-/* [dir='rtl'] .example-option-img {
-  margin-right: 0;
-  margin-left: 8px;
-} */
+button {
+  margin-top: 150px;
+  margin-left: 30px;
+  background-color: black;
+  color: white;
+  min-height: 50px;
+  max-height: 50px;
+}
+
+mat-card-header {
+  margin: 0;
+}
+
+h2 {
+  margin-left: 16px;
+}

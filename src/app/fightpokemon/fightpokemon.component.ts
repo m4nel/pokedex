@@ -21,6 +21,8 @@ export class FightpokemonComponent implements OnInit {
   pokemonInput2Total: number;
   background: { 'background-color': string };
   background2: { 'background-color': string };
+  texto1: string = "";
+  texto2: string = "";
 
   ngOnInit(): void {
   }
@@ -29,6 +31,7 @@ export class FightpokemonComponent implements OnInit {
     if(diff == 1) {
       this.background = { 'background-color': 'white' };
       this.pokemonInput1Total = 0;
+      this.texto1 = "";
       this.pokemonInput1 = pokemon;
       this.pokemonInput1.stats.forEach(s => this.pokemonInput1Total += s.base_stat);
       return this.pokemonInput1;
@@ -37,6 +40,7 @@ export class FightpokemonComponent implements OnInit {
     else{
       this.background2 = { 'background-color': 'white' };
       this.pokemonInput2Total = 0;
+      this.texto2 = "";
       this.pokemonInput2 = pokemon;
       this.pokemonInput2.stats.forEach(s => this.pokemonInput2Total += s.base_stat);
       return this.pokemonInput2;
@@ -44,15 +48,25 @@ export class FightpokemonComponent implements OnInit {
   }
 
   fight() {
+    if(!this.pokemonInput1 || !this.pokemonInput2) {
+      alert("jassou")
+      //
+    }
     if(this.pokemonInput1Total > this.pokemonInput2Total) {
-      this.background = { 'background-color': 'green' };
-      this.background2 = { 'background-color': 'red' };
+      this.texto1 = "Foi o Vencedor";
+      this.texto2 = "Perdeu";
+      this.background = { 'background-color': '#99FF99' };
+      this.background2 = { 'background-color': '#FFCCCC' };
     }
     if(this.pokemonInput1Total < this.pokemonInput2Total ){
-      this.background2 = { 'background-color': 'green' };
-      this.background = { 'background-color': 'red' };
+      this.texto2 = "Foi o Vencedor";
+      this.texto1 = "Perdeu";
+      this.background2 = { 'background-color': '#99FF99' };
+      this.background = { 'background-color': '#FFCCCC' };
     }
     if(this.pokemonInput1Total == this.pokemonInput2Total){
+      this.texto1 = "Empatou";
+      this.texto2 = "Empatou";
       this.background2 = { 'background-color': 'grey' };
       this.background = { 'background-color': 'grey' };
     }

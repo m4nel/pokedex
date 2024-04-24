@@ -1,16 +1,19 @@
+<div class="pokedexTela">
 
-<div class="inputSearch">
-  <input [(ngModel)]="inputSearch" type="text" (ngModelChange)="TemPokemon()" />
-</div>
 
-<div class="divPai">
-  <div class="box" *ngIf="temPokemon; else notFound">
-    <div
+  <div class="inputSearch">
+    <h3><strong>Escolha o Pokemon: </strong></h3>
+    <input [(ngModel)]="inputSearch" type="text" (ngModelChange)="TemPokemon()" class=""/>
+  </div>
+
+  <div class="divPai">
+    <div class="box" *ngIf="temPokemon; else notFound">
+      <div
       *ngFor="
         let pokemon of pokemons
-          | searchPipe : inputSearch
-          | slice : (currentPage - 1) * pageSize : currentPage * pageSize
-      "
+        | searchPipe : inputSearch
+        | slice : (currentPage - 1) * pageSize : currentPage * pageSize
+        "
       class="listPokemon"
       (click)="selecionaPokemon(pokemon)"
       >
@@ -20,17 +23,19 @@
     </div>
   </div>
 
-</div>
 
-<mat-paginator
+  <mat-paginator
   [length]="pokemonsFiltrados.length"
   [pageSize]="pageSize"
   (page)="onPageChange($event)"
   aria-label="Select page"
   *ngIf="paginar"
->
-</mat-paginator>
+  >
+  </mat-paginator>
 
-<ng-template #notFound>
-  <h2 style="color: red">Nenhum pokemon encontrado</h2>
-</ng-template>
+  <ng-template #notFound>
+    <h2 style="color: red">Nenhum pokemon encontrado</h2>
+  </ng-template>
+
+</div>
+
