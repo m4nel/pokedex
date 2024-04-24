@@ -1,6 +1,7 @@
 # Projeto Pokedex Angular 14
 BEM VINDO
-![Alt Text](assets/SquartGIF.gif)
+
+![Alt Text](/src/assets/SquartGIF.gif)
 
 
 ## Descrição
@@ -25,4 +26,5 @@ O projeto é uma aplicação web que permite aos usuários explorar e aprender s
 
 
 Divirta-se explorando o mundo dos Pokémon com o Projeto Pokedex, Pikachu, eu escolho você!
-[Alt Text](assets/pikachuFeliz.gif)
+
+[Alt Text](/src/assets/pikachuFeliz.gif)
