@@ -1,3 +1,4 @@
+
 export interface Pokemon {
   id: number,
   name: string,
@@ -31,3 +32,4 @@ interface Other {
 interface Abilities {
   ability: {name: string}
 }
+

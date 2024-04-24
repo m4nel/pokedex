@@ -4,9 +4,11 @@
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Pokemon </mat-label>
       <input matInput
-             aria-label="Pokemon"
-             [matAutocomplete]="auto"
-             [(ngModel)]="inputSearch">
+        aria-label="Pokemon"
+        [matAutocomplete]="auto"
+        [(ngModel)]="inputSearch"
+      >
+
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="
         let pokemon of pokemons
@@ -15,7 +17,6 @@
           >
           <img class="example-option-img" aria-hidden height="25" [src]="pokemon.sprites.front_default">
           <span>{{pokemon.name}}</span>
-          <!-- <small>Population: {{pokemon.stats}}</small> -->
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
@@ -23,40 +24,41 @@
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Pokemon</mat-label>
       <input matInput
-             aria-label="Pokemon"
-             [matAutocomplete]="auto2"
-             [(ngModel)]="inputSearch"
-             >
+        aria-label="Pokemon"
+        [matAutocomplete]="auto2"
+        [(ngModel)]="inputSearch2"
+      >
+
       <mat-autocomplete #auto2="matAutocomplete">
         <mat-option *ngFor="
         let pokemon of pokemons
-          | searchPipe : inputSearch"
+          | searchPipe : inputSearch2"
       (click)="selecionaPokemon(pokemon,2)"
       >
           <img class="example-option-img" aria-hidden height="25" [src]="pokemon.sprites.front_default">
           <span>{{pokemon.name}}</span>
-          <!-- <small>Population: {{pokemon.height}}</small> -->
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
   </div>
   <mat-card class="cardMaiorBatalha">
     <mat-card class="cardInternoBatalha PRIMEIRO" *ngIf="pokemonInput1"
-    [ngStyle]="background"
-    >
+    [ngStyle]="background">
+
         <mat-card-header>
             <mat-card-title>{{pokemonInput1.name.toUpperCase()}} </mat-card-title>
         </mat-card-header>
         <h2><strong>{{texto1}}</strong></h2>
         <img mat-card-xl-image [src]="pokemonInput1.sprites.front_default" alt="Photo of a pokemon">
         <mat-card-content>
-          <div>
-            <h3><strong>Força Total: </strong>{{pokemonInput1Total}}</h3>
-          </div>
+
+        <div>
+          <h3><strong>Força Total: </strong>{{pokemonInput1Total}}</h3>
+        </div>
         </mat-card-content>
     </mat-card>
 
-    <button mat-button (click)="fight()">FIGHT</button>
+    <button mat-button (click)="fight()" *ngIf="pokemonInput1 && pokemonInput2 ; else insiraPokemon ">FIGHT</button>
 
     <mat-card class="cardInternoBatalha SEGUNDO" *ngIf="pokemonInput2"
     [ngStyle]="background2">
@@ -72,5 +74,8 @@
         </mat-card-content>
     </mat-card>
 
+    <ng-template #insiraPokemon>
+      <h1 style="color: red" >Insira pokemons</h1>
+    </ng-template>
   </mat-card>
 </mat-card>

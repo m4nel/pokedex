@@ -12,7 +12,6 @@ export class PokemonComponent implements OnInit {
 
   @Input('pokemon')
   pokemon : Pokemon;
-  corCard: string = "initial"
 
   ngOnInit(): void {
   }
@@ -41,6 +40,7 @@ export class PokemonComponent implements OnInit {
       case 'steel': return '#b8b8d0';
       case 'bug': return '#68a090';
       case 'fairy': return '#FF66FF';
+
       default: return 'gray';
     }
   }

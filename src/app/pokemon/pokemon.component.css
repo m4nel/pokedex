@@ -10,21 +10,13 @@ mat-card-content{
 
 .example-card{
   cursor: pointer;
-
 }
 
 .example-card:hover{
-  background-color: gray;
   transition: background-color 0.3s;
-
-
   transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
 	box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
 	-webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
   transition: all 0.5s;
-
-
-
-
 }

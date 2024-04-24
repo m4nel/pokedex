@@ -1,6 +1,5 @@
 <div class="pokedexTela">
 
-
   <div class="inputSearch">
     <h3><strong>Escolha o Pokemon: </strong></h3>
     <input [(ngModel)]="inputSearch" type="text" (ngModelChange)="TemPokemon()" class=""/>
@@ -19,10 +18,8 @@
       >
 
       <app-pokemon class="appPokemon" [pokemon]="pokemon" ></app-pokemon>
-
     </div>
   </div>
-
 
   <mat-paginator
   [length]="pokemonsFiltrados.length"
@@ -36,6 +33,5 @@
   <ng-template #notFound>
     <h2 style="color: red">Nenhum pokemon encontrado</h2>
   </ng-template>
-
 </div>
 

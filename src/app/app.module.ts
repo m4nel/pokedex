@@ -38,9 +38,7 @@ import { FightpokemonComponent } from './fightpokemon/fightpokemon.component';
     FormsModule,
     AutocompleteLibModule
   ],
-  // exports: [
-  //   HttpClientModule
-  // ],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ModalComponent } from '../modal/modal.component';
 import { Pokemon } from '../models/Pokemon';
 import { PokemonService } from './../service/pokemon.service';
-import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-pokedex',
@@ -18,12 +18,10 @@ export class PokedexComponent implements OnInit {
   pageSize = 9;
   paginar : boolean = true;
   currentPage: number = 1;
-
   inputSearch : string = '';
   pokemons : Pokemon[] = [];
   pokemonsFiltrados : Pokemon[] = [];
   temPokemon : boolean = true;
-
   showDetail : boolean = false;
 
   constructor(public pokemonService : PokemonService, public dialog: MatDialog) {
@@ -32,11 +30,9 @@ export class PokedexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   selecionaPokemon(pokemon: Pokemon ) {
-
     this.dialog.open(ModalComponent, {
       data: pokemon
     });
@@ -46,7 +42,6 @@ export class PokedexComponent implements OnInit {
     this.currentPage = event.pageIndex + 1;
   }
 
-
   TemPokemon() {
     this.temPokemon = this.pokemons.some( p => p.name.includes(this.inputSearch) || p.id.toString().includes(this.inputSearch));
     this.ehPraPaginar();
@@ -55,7 +50,6 @@ export class PokedexComponent implements OnInit {
       this.currentPage = 1;
       this.paginator.pageIndex = 0;
     }
-
     return this.temPokemon;
   }
 
