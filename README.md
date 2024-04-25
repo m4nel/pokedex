@@ -6,7 +6,7 @@ BEM VINDO
 
 ## Descrição
 
-O projeto é uma aplicação web que permite aos usuários explorar e aprender sobre os diferentes tipos de Pokémon. Usamos o Angular 14 para criar uma interface interativa e envolvente que torna a experiência de descoberta dos Pokémon ainda mais emocionante.
+O projeto é uma aplicação web que permite aos usuários explorar e aprender sobre os diferentes tipos de Pokémon. Usando o Angular 14 para criar uma interface interativa e envolvente que torna a experiência de descoberta dos Pokémon ainda mais emocionante.
 
 ## Funcionalidades
 
